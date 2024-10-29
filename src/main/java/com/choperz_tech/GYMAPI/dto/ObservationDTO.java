@@ -1,20 +1,11 @@
-package com.choperz_tech.GYMAPI.models;
+package com.choperz_tech.GYMAPI.dto;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-@Entity
-public class Observations {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne
-    private Client client;
-
+public class ObservationDTO {
     private LocalDate date;
     private Double weight;                // Peso
     private Double size;                  // Talla

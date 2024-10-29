@@ -3,6 +3,7 @@ package com.choperz_tech.GYMAPI.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Date;
 import java.util.List;
 
 @Data
@@ -17,6 +18,7 @@ public class Client {
     private String email;
     private String phone;
     private String sex;
+    private Date birth_date;
 
     @OneToOne
     private Membership membership;

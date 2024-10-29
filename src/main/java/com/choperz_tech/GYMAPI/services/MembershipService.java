@@ -24,8 +24,12 @@ public class MembershipService {
         membership.setPrice(membershipdto.getPrice());
         membership.setTimeInMonths(membershipdto.getTimeInMonths());
 
-
         return membershipRepository.save(membership);
     }
 
+    public Membership deleteMembership(Long idMembership) {
+        Membership membership = membershipRepository.findById(idMembership).orElseThrow();
+        membershipRepository.delete(membership);
+        return membership;
+    }
 }
