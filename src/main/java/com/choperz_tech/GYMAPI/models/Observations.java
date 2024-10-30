@@ -13,6 +13,7 @@ public class Observations {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
 
     private LocalDate date;
