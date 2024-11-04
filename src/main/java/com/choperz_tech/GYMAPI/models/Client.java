@@ -3,7 +3,8 @@ package com.choperz_tech.GYMAPI.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -18,11 +19,12 @@ public class Client {
     private String email;
     private String phone;
     private String sex;
-    private Date birth_date;
+    private LocalDate birthday;
 
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="membersip_id")
     private Membership membership;
 
-    @OneToMany(mappedBy = "")
+    @OneToMany(mappedBy = "client")
     private List<Observations> observations;
 }

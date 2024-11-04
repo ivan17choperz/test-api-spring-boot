@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
@@ -15,7 +16,6 @@ public class Membership {
 
     private String type;
     private Double price;
-    private Integer timeInMonths;
-
+    private Integer timeInDays;
 
 }

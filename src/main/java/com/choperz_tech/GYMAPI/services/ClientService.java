@@ -22,6 +22,8 @@ public class ClientService {
         client.setLast_name(clientdto.getLast_name());
         client.setEmail(clientdto.getEmail());
         client.setPhone(clientdto.getPhone());
+        client.setSex(clientdto.getSex());
+        client.setBirthday(clientdto.getBirthday());
 
         Membership membership = membershipRepository.findById(clientdto.getMembershipId()).orElseThrow();
         client.setMembership(membership);
@@ -32,4 +34,6 @@ public class ClientService {
     public List<Client> getClients() {
         return clientRepository.findAll();
     }
+
+    
 }

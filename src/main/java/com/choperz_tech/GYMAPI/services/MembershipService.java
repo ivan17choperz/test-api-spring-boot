@@ -22,7 +22,7 @@ public class MembershipService {
         Membership membership = new Membership();
         membership.setType(membershipdto.getType());
         membership.setPrice(membershipdto.getPrice());
-        membership.setTimeInMonths(membershipdto.getTimeInMonths());
+        membership.setTimeInDays(membershipdto.getTimeInMonths());
 
         return membershipRepository.save(membership);
     }

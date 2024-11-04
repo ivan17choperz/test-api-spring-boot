@@ -10,6 +10,6 @@ import lombok.Data;
 public class ActivityDTO {
     private String name_professional;
     private String name_activity;
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate date_execution;
 }
