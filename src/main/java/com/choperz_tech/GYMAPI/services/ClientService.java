@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class ClientService {
     @Autowired
@@ -35,5 +36,13 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    
+    public Client getClientById(Long id) {
+        return clientRepository.findById(id).orElseThrow();
+    }
+
+    public String deleteClient(Long id) {
+        clientRepository.deleteById(id);
+        return "Client was deleted";
+    }
+
 }

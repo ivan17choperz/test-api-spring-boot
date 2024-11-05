@@ -21,14 +21,19 @@ public class ClientController {
         return clientService.getClients();
     }
 
-    // @GetMapping("/client/{id}")
-    // public RequestMapping<?> getDetailClient(@RequestParam Long id) {
-    // return
-    // }
+    @GetMapping("/client/{id}")
+    public Client getDetailClient(@PathVariable Long id) {
+        return clientService.getClientById(id);
+    }
 
     @PostMapping("/save-client")
     public Client registerClient(@RequestBody ClientDTO clientDTO) {
         return clientService.registerNewClient(clientDTO);
+    }
+
+    @DeleteMapping("/delete-client/{id}")
+    public String deleteClient(@PathVariable Long id) {
+        return clientService.deleteClient(id);
     }
 
 }
