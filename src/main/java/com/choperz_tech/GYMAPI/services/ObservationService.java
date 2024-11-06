@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.choperz_tech.GYMAPI.dto.ObservationDTO;
+import com.choperz_tech.GYMAPI.models.Client;
 import com.choperz_tech.GYMAPI.models.Observations;
 import com.choperz_tech.GYMAPI.repositories.ObservationRepository;
 
@@ -13,6 +14,9 @@ import com.choperz_tech.GYMAPI.repositories.ObservationRepository;
 public class ObservationService {
     @Autowired
     private ObservationRepository observationRepository;
+
+    @Autowired
+    private ClientService clientService;
 
     public List<Observations> getObservationRepository(Long id) {
 
@@ -25,7 +29,9 @@ public class ObservationService {
     public Observations saveObservation(ObservationDTO observation) {
 
         Observations observationEntity = new Observations();
+        Client client = clientService.getClientById(observation.getClientId());
 
+        observationEntity.setClient(client);
         observationEntity.setDate(observation.getDate());
         observationEntity.setWeight(observation.getWeight());
         observationEntity.setHeight(observation.getHeight());

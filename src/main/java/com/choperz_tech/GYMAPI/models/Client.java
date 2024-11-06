@@ -7,6 +7,9 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.List;
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Data
 @Entity
 public class Client {
@@ -26,5 +29,6 @@ public class Client {
     private Membership membership;
 
     @OneToMany(mappedBy = "client")
+    @JsonManagedReference
     private List<Observations> observations;
 }
