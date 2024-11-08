@@ -27,4 +27,9 @@ public class ActivitiesService {
         return activityRepository.save(newActivity);
     }
 
+    public String deleteActivity(Long id) {
+        activityRepository.deleteById(id);
+        return "Activity was deleted";
+    }
+
 }

@@ -46,4 +46,11 @@ public class ObservationService {
         return observationRepository.save(observationEntity);
     }
 
+    public String deleteObservation(Long id) {
+
+        observationRepository.deleteById(id);
+
+        return "Observation was deleted";
+    }
+
 }
